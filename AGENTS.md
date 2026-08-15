@@ -24,7 +24,13 @@ sampling topology, enumerate compatible views, and select the views required
 by the task. Rendering dimension does not determine data dimension: a heatmap
 and a 3D surface can represent the same 2D scalar grid. Use the canonical
 [Data Space and Visualization Views](https://github.com/Patr1ck2005/plot-workflows/blob/main/docs/data-space-and-visualization.md)
-specification and its six-field Agent decision record.
+specification and its seven-field Agent decision record.
+
+When a caller applies a scientific reduction before rendering, classify and
+document the derived analysis space separately from the raw data space. This
+package renders the resulting typed payload; it does not infer peak/ridge,
+extrema, branch, or projection semantics. A caller may also render its raw
+payload directly when no analysis transformation is required.
 
 ## Workflow
 
