@@ -27,6 +27,12 @@ The current release includes line, scatter, heatmap, contour, surface,
 polarization, vector-field, lineshape, and field-regime artists. Figure
 creation, saving, and physical interpretation remain explicit caller policy.
 
+Before selecting one of these views, classify intrinsic data dimension and
+sampling topology using the canonical
+[Data Space and Visualization Views](https://github.com/Patr1ck2005/plot-workflows/blob/main/docs/data-space-and-visualization.md)
+specification. A surface renderer consumes a 2D `z = f(x, y)` object; it does
+not imply dense 3D data.
+
 ```python
 from plot_foundation import (
     AxesSpec,
