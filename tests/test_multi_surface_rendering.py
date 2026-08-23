@@ -44,3 +44,31 @@ def test_explicit_rgba_shape_and_transposed_height_are_rejected():
         MultiSurfacePlotSpec(x=x, y=y, layers=(SurfaceLayer(z, rgba=np.zeros((5, 3, 4))),))
     with pytest.raises(ValueError, match="x-first"):
         MultiSurfacePlotSpec(x=x, y=y, layers=(SurfaceLayer(z.T),))
+
+
+def test_nan_color_holes_survive_draw_without_array_override():
+    """set_array() must NOT be set on the collection: it forces draw-time
+    facecolor recomputation, turning NaN holes into the cmap bad color
+    (regression: uniform/noise surfaces) and exploding SVG export memory
+    on dense grids."""
+    import matplotlib
+
+    matplotlib.use("Agg")
+    x = np.linspace(0.0, 1.0, 6)
+    y = np.linspace(0.0, 1.0, 6)
+    X, Y = np.meshgrid(x, y, indexing="ij")
+    z = X + Y
+    color = X - Y
+    color[2, 2] = np.nan  # hole
+    result = render_multi_surface_3d(
+        MultiSurfacePlotSpec(
+            x=x, y=y, layers=(SurfaceLayer(z, color_values=color),),
+            style=SurfaceStyle(cmap="viridis"),
+        )
+    )
+    artist = result.artists[0]
+    assert artist.get_array() is None  # no draw-time recolor channel
+    face_alpha = np.asarray(artist._facecolor3d)[:, 3]
+    assert np.any(face_alpha == 0.0)  # the NaN hole stays a transparent quad
+    assert np.any(face_alpha > 0.0)  # finite cells stay opaque
+    result.figure.canvas.draw()  # must not raise or recolor

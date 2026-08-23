@@ -62,6 +62,7 @@ from .style import (
     MatplotlibStyle,
     PlotProfile,
     SaveSpec,
+    apply_style,
     figure_preset,
     profile,
     profile_context,
@@ -132,5 +133,6 @@ __all__ = [
     "imshow_s3",
     "runtime_info",
     "save_figure",
+    "apply_style",
     "style_context",
 ]

@@ -343,7 +343,13 @@ def render_multi_surface_3d(spec: MultiSurfacePlotSpec, *, ax=None) -> RenderRes
         )
         surface.set_cmap(cmap)
         surface.set_norm(norm)
-        surface.set_array(np.asarray(color_values).T.ravel())
+        # Deliberately NO set_array() here: facecolors above are already the
+        # rendered truth. Setting an array makes Poly3DCollection recompute
+        # facecolors at draw time, which (a) degrades NaN cells to the cmap
+        # bad color instead of the transparent holes prepared above, and
+        # (b) explodes SVG export memory on dense grids (~3 GiB
+        # Poly3DCollection allocation at >=100x100). The artist keeps its
+        # cmap+norm, so get_clim()/colorbar use remains intact.
         surfaces.append(surface)
     ax.set_xlabel(spec.xlabel)
     ax.set_ylabel(spec.ylabel)

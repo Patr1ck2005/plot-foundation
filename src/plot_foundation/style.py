@@ -81,6 +81,21 @@ def style_context(style: MatplotlibStyle = PAPER_STYLE):
     return mpl.rc_context(rc=style.rc())
 
 
+def apply_style(style: MatplotlibStyle = PAPER_STYLE) -> None:
+    """Apply a style's rcParams globally (imperative one-call for scripts).
+
+    Project ``_lib_common`` modules call this once at import instead of
+    hand-copying rcParams dicts; use :func:`style_context` when a scoped,
+    restorable change is needed. Note the full paper style also pins
+    ``lines.linewidth: 1.0`` and disables auto-layout — stricter than the
+    minimal five-key dicts some projects carry.
+    """
+
+    import matplotlib as mpl
+
+    mpl.rcParams.update(style.rc())
+
+
 @dataclass(frozen=True)
 class SaveSpec:
     """Explicit save policy; layout remains separate from output cropping."""

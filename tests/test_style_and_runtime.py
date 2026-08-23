@@ -15,6 +15,7 @@ from plot_foundation import (
     FigureConfig,
     FigurePolicy,
     SaveSpec,
+    apply_style,
     profile,
     profile_context,
     runtime_info,
@@ -22,6 +23,19 @@ from plot_foundation import (
     style_context,
     __version__,
 )
+
+
+def test_apply_style_matches_agent_glue_dicts():
+    """The imperative one-call bridge must reproduce the minimal Arial-9 dict
+    that project _lib_common modules hand-copied (agent_kit.AGG_RC_PARAMS)."""
+    import matplotlib as mpl
+
+    apply_style()
+    assert mpl.rcParams["font.size"] == 9
+    assert mpl.rcParams["font.family"] == ["sans-serif"]
+    assert list(mpl.rcParams["font.sans-serif"])[:2] == ["Arial", "DejaVu Sans"]
+    assert mpl.rcParams["xtick.direction"] == "in"
+    assert mpl.rcParams["ytick.direction"] == "in"
 
 
 def test_style_context_is_scoped():

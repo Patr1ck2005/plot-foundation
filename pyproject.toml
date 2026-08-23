@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plot-foundation"
-version = "0.1.12"
+version = "0.1.13"
 description = "Domain-neutral plotting specifications, style policy, and renderers"
 readme = "README.md"
 requires-python = ">=3.10"
