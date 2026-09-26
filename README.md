@@ -10,6 +10,16 @@ and explicit x-first vector/director fields. Renderers can create a figure or
 draw on caller-owned axes, but they never save, close, or create directories.
 Saving is a separate, explicit operation.
 
+## Documentation by task
+
+| Task | Entry |
+|---|---|
+| New research figures and complete article figure packages | [Canonical style and A4 delivery policy](docs/style-policy.md#a4-paper-delivery); explicit caller settings are required where legacy software defaults differ |
+| Choose a data representation and view | [Canonical data-space specification](D:/Dev/Projects/Work/plot-workflows/docs/data-space-and-visualization.md) |
+| Use the public interfaces | [Public API](docs/public-api.md); [line-rendering contract](docs/line-rendering-contract.md) |
+| Develop or maintain this library | [Architecture](docs/architecture.md); [Agent rules](AGENTS.md) |
+| Follow the personal research system | [MyPhysics system entry](D:/Obsidian/MyPhysics/System/README.md); scientific meaning remains in the consumer project |
+
 Shared profiles separate analysis and publication output:
 
 - `diagnostic`: titles, labels, legends, grids, larger consumer-selected
