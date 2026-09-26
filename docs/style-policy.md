@@ -117,7 +117,7 @@ how far the research or writing task must go.
   organize main-text and supplementary figures with captions and evidence
   gaps. A manuscript draft requires a writing task. A proposed story or layout
   is not final scientific acceptance. Reusable task wording is maintained in
-  [MyPhysics F1/F2/F3 and W modules](D:/Obsidian/MyPhysics/Resources/Prompts/Web-Pro-自主研究与仿真.md).
+  [MyPhysics F1/F2/F3 and W modules](D:/Obsidian/MyPhysics/Resources/Prompts/Recipes/科研研究.md).
 - Concept diagrams must distinguish illustration from simulated evidence and
   accurately represent geometry, excitation, observables and mechanisms.
   Preserve editable/vector elements where suitable. Each scientific figure
