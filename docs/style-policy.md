@@ -50,17 +50,20 @@ reproduced later.
 <a id="a4-paper-delivery"></a>
 ## A4 portrait / PowerPoint delivery (user clarification, 2026-09-21)
 
-**Updated by explicit user decision, 2026-09-26:** new scientific figures use
-8 pt text and inward ticks. Preserve historical figures. Deliver a complete
-paper figure package: a rich collection of compact, reusable panels plus
-agent-designed main-text and supplementary composites, including a Fig. 1
-concept diagram. This supersedes the earlier 9 pt delivery requirement and
-the expectation that the user normally has to assemble every figure.
+**Updated by explicit user clarification, 2026-09-26:** new scientific figures
+use 8 pt text and inward ticks. Preserve historical figures. The baseline
+deliverable is compact, reusable individual panels that the user can insert
+at their declared physical size and freely assemble in PowerPoint on an A4
+page. Selection/composition, a complete paper figure package, and a manuscript
+draft are separate optional scopes. Exploration does not automatically require
+any of them. This clarification retains the new typography and corrects the
+earlier same-day wording that made a complete figure package the default.
 
 Physical size is part of the output contract, not a cosmetic afterthought.
 Discrete panels must remain suitable for user assembly on an A4 portrait page
-in PowerPoint or another editor. For a complete-paper figure task, the agent
-also designs the scientific story and proposes assembled figures.
+in PowerPoint or another editor. The user may assemble them personally or
+delegate selection and composition. Required visual standards do not determine
+how far the research or writing task must go.
 
 ### Font size and column budget
 
@@ -92,20 +95,29 @@ also designs the scientific story and proposes assembled figures.
 - Height follows content and the available A4 page area; single-column does
   not imply a square final figure. Keep font size at 8 pt when fitting content.
 
-### Rich panel collection and complete paper figure package
+### Rich panel collection and optional composition
 
-- Deliver individual PNG/SVG panels and a manifest with their `figsize`,
-  exported physical width/height, DPI, profile, and intended placement size.
+- For ordinary exploration, deliver individual PNG/SVG panels and retain their
+  generation code and source mapping. Use the existing manifest or configuration
+  for `figsize`, exported physical width/height, DPI, profile and intended
+  placement size; shared settings can be recorded once per figure family with
+  per-panel exceptions. A new reporting document per image is not required.
 - A research task may systematically generate many useful figures covering
   parameter space, mechanisms, controls, failure cases and validity limits.
-  Compact `figsize` is not a limit on figure count. Main-text selection does
-  not justify omitting useful panels; additional evidence can form supplements.
-- For a complete-paper figure task, the agent actively develops the story,
-  draws a physically faithful Fig. 1 concept diagram, and assembles main-text
-  and supplementary figures. Provide useful single-column and double-column
-  composition proposals, adapting panel selection and layout to each width.
-  Keep the individual panels and editable composite sources so the user can
-  rearrange them. A proposed story or layout is not final scientific acceptance.
+  Hundreds of panels may be useful; compact `figsize` is not a limit on figure
+  count or a quota to fill. Keep the full useful collection even when only a
+  small selection is presented. Exploration can be organized by scientific
+  argument without being packaged as a complete paper.
+- When selection/composition is requested, choose informative panels, explain
+  the selection briefly, and assemble logical groups. Choose single-column or
+  double-column layouts as useful; both variants are not required by default.
+  Keep the independent panels and editable composite sources for user assembly.
+- Only for an explicitly requested complete-paper figure task, develop the
+  full figure story, create useful concept diagrams (such as Fig. 1), and
+  organize main-text and supplementary figures with captions and evidence
+  gaps. A manuscript draft requires a writing task. A proposed story or layout
+  is not final scientific acceptance. Reusable task wording is maintained in
+  [MyPhysics F1/F2/F3 and W modules](D:/Obsidian/MyPhysics/Resources/Prompts/Web-Pro-自主研究与仿真.md).
 - Concept diagrams must distinguish illustration from simulated evidence and
   accurately represent geometry, excitation, observables and mechanisms.
   Preserve editable/vector elements where suitable. Each scientific figure
@@ -116,7 +128,10 @@ also designs the scientific story and proposes assembled figures.
   panels or reducing the 8 pt font. The assembled figure must restore sufficient
   axes, units, color scales and labels to be scientifically interpretable;
   shared annotations can serve multiple panels. The minimal profile is not
-  permission to remove necessary meaning from a final figure.
+  permission to remove necessary meaning from a final figure. When delivering
+  panels for user assembly, preserve the missing shared labels/color scales as
+  reusable assets or in their source configuration; do not require an agent-made
+  composite merely to complete the basic panel delivery.
 - Any enlarged diagnostic view must be explicitly identified as such, never
   the default asset handed over for direct PowerPoint insertion.
 
@@ -158,9 +173,9 @@ The fixed-canvas choice is an explicit per-output override. It does not change
 the library's backwards-compatible tight-crop default or require a new preset.
 Likewise, the typography override uses existing APIs; selecting a profile name
 alone still uses its compatibility font default. Workbench callers can use
-`figure_style("publication_minimal", font_size=8.0)`. Validate both individual
-panels and composed figures at their intended physical size, including text,
-ticks, exported dimensions, readability and physical meaning.
+`figure_style("publication_minimal", font_size=8.0)`. Validate the delivered
+panels, and composites when requested, at their intended physical size,
+including text, ticks, exported dimensions, readability and physical meaning.
 
 ## Kept in myPlots
 
