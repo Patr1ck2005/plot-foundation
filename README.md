@@ -1,5 +1,9 @@
 # Plot Foundation
 
+<p align="center"><img src="docs/assets/portfolio/scientific-tools-v1.png" width="760" alt="Four glass modules linked by light: the shared scientific-tooling collection" /></p>
+
+*Concept illustration for the shared scientific-tooling collection; not a computed result. [Artwork provenance](docs/assets/portfolio/manifest.json).*
+
 `plot-foundation` is a domain-neutral plotting library for typed plot
 specifications, scoped style policy, and Matplotlib renderers. It does not
 depend on a consumer's schema, file format, or workflow objects.
