@@ -1,0 +1,156 @@
+{
+  "evidence_type": "computed synthetic software demonstration",
+  "data_origin": "independent generic mathematical definitions in source; no research data",
+  "seed": 1729,
+  "source": "../../../examples/synthetic_rendering.py",
+  "source_sha256": "f468ba505fdcedf1cfde0351c081d6395c89061da9f53bd983ca2c7728265fca",
+  "helper_sha256": "b631e717eb2ff96fffac5fc20e7e681736eeb4cdcac6f1854ff9539c9c16adc6",
+  "generation_command": "python examples/synthetic_rendering.py --out docs/assets/showcase",
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "pandas": "3.0.6",
+    "eigenmode-analysis": "0.2.10",
+    "plot-foundation": "0.1.13",
+    "plot-workflows": "0.1.7",
+    "campaign-data": "0.2.0"
+  },
+  "installed_artifacts": {
+    "eigenmode-analysis": {
+      "archive_sha256": "483af0d204d83e9d1425659468391c4219eb43b40644a556a1b7b0372260d864",
+      "vcs_commit_id": null
+    },
+    "plot-foundation": {
+      "archive_sha256": "5cd802037963d14b986fc911f102b9031d4b58b0c8bbac5d98d0cb551400e732",
+      "vcs_commit_id": null
+    },
+    "plot-workflows": {
+      "archive_sha256": "829e63d6bdfda7b9a94bf30820e58b7c5689480df985d24b22fa761dd0b909f2",
+      "vcs_commit_id": null
+    },
+    "campaign-data": {
+      "archive_sha256": "b1503f8c4a286e4dea4541dc8f2a4be4f76069bc0a01a6975185243a3aa44c79",
+      "vcs_commit_id": null
+    }
+  },
+  "conventions": "All quantities are dimensionless analytic test functions. Grids are x-first with shape (61,35), displayed at the actual 4:2 coordinate aspect. Red/blue represent positive/negative scalar values over [-1,1]; white holes are NaN, not zero. Surface height and color represent different arrays. Stokes components lie on the unit sphere; ellipse color is S3, with no physical propagation convention implied.",
+  "data_space_decisions": [
+    {
+      "intrinsic_dimension": "1D",
+      "sampling_topology": "uniform path",
+      "parameter_space": "generic coordinate",
+      "quantity": "analytic amplitude with illustrative interval",
+      "compatible_views": [
+        "line",
+        "scatter",
+        "ribbon",
+        "color line"
+      ],
+      "selected_views": "typed line family",
+      "transformation_status": "direct raw analytic samples; interval is illustrative, not statistical uncertainty"
+    },
+    {
+      "intrinsic_dimension": "2D",
+      "sampling_topology": "non-square regular grid",
+      "parameter_space": "generic x,y",
+      "quantity": "signed scalar, vectors, surface height and Stokes texture",
+      "compatible_views": [
+        "heatmap",
+        "surface",
+        "vectors",
+        "ellipses"
+      ],
+      "selected_views": "orientation/mask comparison, independent surface channels and polarization",
+      "transformation_status": "direct analytic arrays"
+    },
+    {
+      "intrinsic_dimension": "1D",
+      "sampling_topology": "ordered angular path",
+      "parameter_space": "angle",
+      "quantity": "unit Stokes vector",
+      "compatible_views": [
+        "component lines",
+        "Poincare trajectory"
+      ],
+      "selected_views": "Poincare trajectory",
+      "transformation_status": "direct analytic vector samples"
+    }
+  ],
+  "checks": {
+    "x_first_shape": [
+      61,
+      35
+    ],
+    "renderer_transpose_matches": true,
+    "nan_mask_preserved": true,
+    "caller_axes_reused": true,
+    "two_surface_layers": true,
+    "unit_stokes_norm": true,
+    "global_style_restored": true,
+    "all_assertions_passed": true
+  },
+  "style": "explicit documentation geometry; 180 DPI preview; fixed canvas; Arial 8/9 pt",
+  "images": [
+    {
+      "stem": "hero",
+      "title": "One specification layer, many views",
+      "caption": "Actual public renderers draw analytic arrays onto caller-owned axes. Each view retains its own data meaning.",
+      "size_mm": [
+        210.0,
+        76.0
+      ],
+      "dpi": 180,
+      "png_sha256": "568f0aeb943a8cd68bd99dcb3163099521233b8af5c801630e4a4cb14be4d4a1",
+      "svg_sha256": "c50c4c9c87183852c3f24605f944bb68998dcdf9496e853080e1c1609ce0b21e"
+    },
+    {
+      "stem": "line-family",
+      "title": "Lines, scatter, ribbons and color",
+      "caption": "The shaded interval is ±0.13 around the analytic signal, used to demonstrate ribbon rendering; it is not measured uncertainty.",
+      "size_mm": [
+        105.0,
+        100.0
+      ],
+      "dpi": 180,
+      "png_sha256": "c69107e0abec79baa6eb5998baa3b8b1bedce9305547ad5887d741d07b77b5aa",
+      "svg_sha256": "936afd488e357e2999d6865e03cbf866661233c8bb8d4f4cf379fafad5c15280"
+    },
+    {
+      "stem": "grid-orientation",
+      "title": "Non-square orientation and a genuine NaN hole",
+      "caption": "A 61 × 35 x-first scalar grid with a circular missing region and a sampled rotational vector field. Colorbar has its own axes, preserving the data rectangle.",
+      "size_mm": [
+        105.0,
+        65.0
+      ],
+      "dpi": 180,
+      "png_sha256": "74dc87577e802ca60fd56cc6e8f0cd8d2a656682b93a40213bb314de83dd4928",
+      "svg_sha256": "8a7309848c43429cffca930f6e39ef5e4ec1f639baf54e6df114059e5675b56d"
+    },
+    {
+      "stem": "surface-channels",
+      "title": "Multi-layer surfaces with separate channels",
+      "caption": "Height is 0.25(x²+0.6y²), with the upper layer shifted by 0.85. Colors encode ±sin(1.6x)cos(2.3y); missing cells remain holes.",
+      "size_mm": [
+        125.0,
+        90.0
+      ],
+      "dpi": 180,
+      "png_sha256": "b19c336e562fc40214fa2f844b06dc3120dfd7571328d82e12392a3ec453654c",
+      "svg_sha256": "c593aa39fc475e7610a77d9bd00bc9bb61c3c1da183e01996fd8de7859cdf32d"
+    },
+    {
+      "stem": "polarization",
+      "title": "Polarization ellipses and Poincare path",
+      "caption": "The left texture is colored by S3; the right path is colored by progression from t=0 to 2π. All three Stokes components are normalized.",
+      "size_mm": [
+        210.0,
+        88.0
+      ],
+      "dpi": 180,
+      "png_sha256": "3b6103558cd1593c288854a33498d304ec3b01f73f0d59112c99add6f76c58e7",
+      "svg_sha256": "5c7edec7808af1651d5a9f2cd88c34d3fcaed3f1ec12daf48e0a995c19f186c2"
+    }
+  ]
+}
